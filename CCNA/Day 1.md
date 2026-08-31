@@ -1,0 +1,54 @@
+<p align="center">
+  <img src="Aset/Hari-1.png" alt="Diagram Hari 1" width="500">
+</p>
+
+<p align = "center">
+Gambar topologi sederhana 
+</p>
+<br></br>
+
+# CONFIGURATION 
+
+### 1.Server:
+
+**1.Konfigurasikan pengaturan antarmuka Server Publik**
+
+* Alokasikan alamat IPv4 `200.100.10.2/24` pada antarmuka jaringan utama.
+
+* Konfigurasikan `200.100.10.1` sebagai default gateway.
+
+**2.Aktifkan dan konfigurasikan Layanan Jaringan pada Server0:**
+
+* Pastikan layanan HTTP dan HTTPS dalam status ON.
+
+* Aktifkan layanan DNS dan buat A Record yang memetakan domain `skillsforall.srv` ke alamat IPv4 `200.100.10.2`.
+
+### 2.WAN & Infrastructure Configuration
+
+**Konfigurasikan pemetaan koneksi pada Cloud (`Cloud0`):**
+
+* Petakan antarmuka Coaxial7 ke antarmuka Ethernet6 untuk menghubungkan jaringan Server dan Cable Modem.
+
+### 3.LAN & Wireless Router Configuration
+
+**Konfigurasikan Pengaturan WAN pada Wireless Router (`Wireless Router0`):**
+
+* Atur Internet Connection Type menjadi Automatic Configuration - DHCP untuk mendapatkan parameter WAN secara otomatis.
+
+**Konfigurasikan Pengaturan LAN & DHCP Server pada Wireless Router (Wireless Router0):**
+
+* Atur alamat IP LAN Router menjadi `192.168.1.1` dengan subnet mask `255.255.255.0`.
+
+* Aktifkan DHCP Server dengan batas awal alokasi IP (starting IP address) `192.168.1.12`.
+
+* Konfigurasikan pengaturan Static DNS 1 mengarah ke IP `200.100.10.2`.
+
+### 4.Verification & Client Testing
+
+**Verifikasi konfigurasi klien pada Laptop0:**
+
+* Perbarui permintaan IP via DHCP dan pastikan Laptop0 mendapatkan alamat IP 192.168.1.12 serta DNS Server `200.100.10.2`.
+
+**Uji konektivitas end-to-end dan resolusi domain:**
+
+* Buka Web Browser pada Laptop0 dan pastikan halaman web dapat diakses melalui domain skillsforall.srv atau IP `200.100.10.2`.
